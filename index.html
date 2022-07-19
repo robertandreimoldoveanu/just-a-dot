@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+		<title>Just a dot</title>
+<style>
+	html, body {
+		height: 100%;
+		width: 100%;
+		display: flex;
+    		justify-content: center;
+    		align-items: center;
+	}
+	.the-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+		background-color: black;
+		cursor: pointer;
+	}
+
+	.dark { background-color: black; }
+	.dark .the-dot { background-color: white; }
+</style>
+	</head>
+	<body>
+		<div class="the-dot"></div>
+		<script type="text/javascript">
+			document.querySelector('.the-dot').addEventListener('click', () => {
+				document.body.classList.toggle('dark');
+			});
+		</script>
+	</body>
+</html>
+<!-- coded in vim with <3 -->
