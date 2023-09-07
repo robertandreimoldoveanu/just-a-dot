@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-		<link rel="manifest" href="./site.webmanifest">
-		<title>Just a dot</title>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+	<link rel="manifest" href="./site.webmanifest">
+	<title>Just a dot</title>
 	<style>
-		html, body {
+		html,
+		body {
 			height: 100%;
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
+
 		.the-dot {
 			width: 10px;
 			height: 10px;
@@ -24,14 +27,28 @@
 			cursor: pointer;
 		}
 
-		button { position: absolute; top: 0; right: 0;}
+		.controls {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
 
-		.dark { background-color: black; }
-		.dark .the-dot { background-color: white; }
-		.hide { display: none; }
+		.dark {
+			background-color: black;
+		}
+
+		.dark .the-dot {
+			background-color: white;
+		}
+
+		.hide {
+			display: none;
+		}
 	</style>
-	</head>
-	<body>
+</head>
+
+<body>
+	<div class="controls">
 		<select id="seconds">
 			<option value="30">30 seconds</option>
 			<option value="60">60 seconds</option>
@@ -39,21 +56,24 @@
 			<option value="120">120 seconds</option>
 		</select>
 		<button type="button">Start timer</button>
-		<div class="the-dot"></div>
-		<script type="text/javascript">
-			const dot = document.querySelector('.the-dot');
-			const button = document.querySelector('button');
-			dot.addEventListener('click', () => {
-				document.body.classList.toggle('dark');
-			});
-			button.addEventListener('click', () => {
-				button.classList.toggle('hide');
-				const seconds = parseInt(document.querySelector('#seconds').value);
-				setTimeout(() => {
-					alert('one minute passed, you\'re ready to focus!');
-					button.classList.toggle('hide');
-				}, 1000 * seconds);
-			});
-		</script>
-	</body>
+	</div>
+	<div class="the-dot"></div>
+	<script type="text/javascript">
+		const dot = document.querySelector('.the-dot');
+		const button = document.querySelector('button');
+		const controls = document.querySelector('.controls');
+		dot.addEventListener('click', () => {
+			document.body.classList.toggle('dark');
+		});
+		button.addEventListener('click', () => {
+			controls.classList.toggle('hide');
+			const seconds = parseInt(document.querySelector('#seconds').value);
+			setTimeout(() => {
+				alert(seconds + ' seconds passed, you\'re ready to focus!');
+				controls.classList.toggle('hide');
+			}, 1000 * seconds);
+		});
+	</script>
+</body>
+
 </html>
