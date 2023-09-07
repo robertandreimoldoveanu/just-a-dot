@@ -32,6 +32,12 @@
 	</style>
 	</head>
 	<body>
+		<select id="seconds">
+			<option value="30">30 seconds</option>
+			<option value="60">60 seconds</option>
+			<option value="90">90 seconds</option>
+			<option value="120">120 seconds</option>
+		</select>
 		<button type="button">Start timer</button>
 		<div class="the-dot"></div>
 		<script type="text/javascript">
@@ -42,12 +48,12 @@
 			});
 			button.addEventListener('click', () => {
 				button.classList.toggle('hide');
+				const seconds = parseInt(document.querySelector('#seconds').value);
 				setTimeout(() => {
 					alert('one minute passed, you\'re ready to focus!');
 					button.classList.toggle('hide');
-				}, 1000 * 60);
+				}, 1000 * seconds);
 			});
 		</script>
 	</body>
 </html>
-<!-- coded in vim with <3 -->
